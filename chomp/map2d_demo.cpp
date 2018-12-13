@@ -180,13 +180,13 @@ public:
 //////////////////////////////////////////////////////////////////////
 // help generate an an initial trajectory
 
-void generateInitialTraj(int N, 
-                         const Map2D& map, 
-                         const vec2f& p0, 
-                         const vec2f& p1,
-                         MatX& xi,
-                         MatX& q0,
-                         MatX& q1) {
+void initializeStraightLine(int N,
+                            const Map2D &map,
+                            const vec2f &p0,
+                            const vec2f &p1,
+                            MatX &xi,
+                            MatX &q0,
+                            MatX &q1) {
   
   xi.resize(N, 2);
   q0.resize(1, 2);
@@ -467,7 +467,7 @@ int main(int argc, char** argv) {
     p1 = map.grid.bbox().p1.trunc();
   }
 
-  generateInitialTraj(N, map, p0, p1, xi, q0, q1);
+    initializeStraightLine(N, map, p0, p1, xi, q0, q1);
 
   Chomp chomper(NULL, xi, q0, q1, N, alpha, errorTol, max_iter);
   chomper.objective_type = otype;
