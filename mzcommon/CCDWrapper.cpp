@@ -437,7 +437,7 @@ namespace ccdw {
     c = xform * c;
   }
 
-  void TransformedConvex::render(DrawHelper& h, float radius) const {
+  void TransformedConvex::render(DrawHelper& h, ccd_real_t radius) const {
     assert(child);
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();
