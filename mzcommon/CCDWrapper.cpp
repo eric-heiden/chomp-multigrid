@@ -384,7 +384,7 @@ namespace ccdw {
     s += dir * (dilation / dir.norm());
   }
 
-  void DilatedConvex::render(DrawHelper& h, float extra) const {
+  void DilatedConvex::render(DrawHelper& h, ccd_real_t extra) const {
     assert(child);
     child->render(h, dilation+extra);
   }
