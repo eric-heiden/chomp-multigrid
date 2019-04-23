@@ -606,7 +606,9 @@ namespace ccdw {
     Convex* dilated = 0;
 
     if (dmin && qtype != QUERY_INTERSECT) {
-      ccd_real_t actual = ccdGJKDist(c1, c2, &ccd);
+      ccd_real_t actual;
+      ccd_vec3_t dir, pos;
+      ccdGJKPenetration(c1, c2, &ccd, &actual, &dir, &pos);
       if (actual > 0) {
         if (actual < dmin + ccd.dist_tolerance) {
           if (qtype == QUERY_PENETRATION) {
